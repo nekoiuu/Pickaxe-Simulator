@@ -4,8 +4,8 @@ local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 -- Stone remotes
 local remotes: Folder = ReplicatedStorage.Remotes.Stone
-local getData: RemoteFunction = remotes.GetData
-local updateData: RemoteEvent = remotes.UpdateData
+local getData: RemoteFunction = remotes:WaitForChild("GetData")
+local updateData: RemoteEvent = remotes:WaitForChild("UpdateData")
 
 -- UI references
 local playerGui = player.PlayerGui

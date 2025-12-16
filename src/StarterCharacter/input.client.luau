@@ -32,7 +32,8 @@ UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
 
         -- cooldown check
         if tick() - foundTool:GetAttribute("LastSwing") < toolData.CoolDown then return end
-
+        foundTool:SetAttribute("LastSwing", tick())
+        
         -- play attack animation
         local track = animation.Get(Animator, toolData.AnimationIds.Attack)
         track.Looped = false
