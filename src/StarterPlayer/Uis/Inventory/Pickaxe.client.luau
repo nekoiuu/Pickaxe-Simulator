@@ -19,8 +19,19 @@ local equipTool: RemoteFunction = remotes:WaitForChild("EquipTool")
 local Types = require(ReplicatedStorage.Modules:WaitForChild("Types"))
 local configruation = require(ReplicatedStorage.Modules.Configurations:WaitForChild("Pickaxe"))
 
+function CheeckItem(id:string)
+    for _,item in ipairs(items:GetChildren()) do
+        if item:IsA("Frame") and item:GetAttribute("id") == id then
+            return item
+        end
+    end
+end
+
 -- Create pickaxe UI item
 function CreateItem(item: Types.InventoryPickaxe)
+
+    if CheeckItem(item.Id) then return end
+    
     -- Get pickaxe config data
     local PickaxeData = configruation.GetDataByName(item.Name)
 

@@ -65,6 +65,10 @@ function PlayerAdded(player: Player)
         if player.Parent == Players then
             ProfilesService.Profiles[player] = profile
             SetUpLeaderstats(player, profile.Data)
+            
+            local pickaxeData = Pickaxes.GetData(player)
+            if not pickaxeData[1]  then Pickaxes.AddItem(player,"DefaultPickaxe") end
+            
             print(`Profile Loaded for {player.DisplayName}!`)
         else
             profile:EndSession()
